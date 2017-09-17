@@ -154,6 +154,15 @@ if(index>this.students.length||index<0||students!=null){
 	@Override
 	public void removeFromIndex(int index)throws IllegalArgumentException {
 		// Add your implementation here
+if(index<this.students.length||index>=0||students!=null){
+			
+			for(int i=index;i<this.students.length;i++)
+				{
+				this.students[i]=null;
+				}
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
