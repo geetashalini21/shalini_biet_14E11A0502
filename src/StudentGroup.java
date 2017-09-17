@@ -111,46 +111,20 @@ public class StudentGroup implements StudentArrayOperation {
 		}else{
 			throw new IllegalArgumentException();
 		}
-	
-	}
-
-	@Override
-	public void remove(int index) throws IllegalArgumentException {
-		// Add your implementation here
-if(index<this.students.length||index>=0||students!=null){
-			
-			for(int i=index;i<this.students.length;i++)
-				{
-				this.students[i]=students[i+1];
-				}
-		}else{
-			throw new IllegalArgumentException();
-		}
 
 	}
 
 	@Override
-	public void remove(Student student)throws IllegalArgumentException {
+	public void remove(int index)  {
 		// Add your implementation here
-		try {
-			if(students!=null)
-		{
-			for (int i=0;i<this.students.length;i++)
-             {
-				if(students[i]==student)
-				{
-					students[i]=students[i+1];
-				}
-				else
-				{
-					throw new IllegalArgumentException();
-					}
-             }
-		}
-		}
-                catch(IllegalArgumentException e){
-					System.out.println("Student not exist");
-	          }
+       
+
+	}
+
+	@Override
+	public void remove(Student student){
+		// Add your implementation here
+		
 	}
 
 	@Override
