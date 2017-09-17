@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -176,8 +177,10 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public int getCurrentAgeByDate(int indexOfStudent) {
 		// Add your implementation here
-		return 0;
-	}
+		Calendar cal=Calendar.getInstance();
+		cal.setTime(students[indexOfStudent].getBirthDate());
+		return Calendar.getInstance().get(Calendar.YEAR)-cal.get(Calendar.YEAR);
+	}	
 
 	@Override
 	public Student[] getStudentsByAge(int age) {
