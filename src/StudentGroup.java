@@ -87,8 +87,22 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void add(Student student, int index) {
+	public void add(Student student, int index)throws IllegalArgumentException {
 		// Add your implementation here
+		if(index<this.students.length||index>=0||student!=null){
+			Student temp1=student;
+			Student temp2=this.students[index];
+			int i;
+			for(i=index;i<this.students.length-2;i++){
+				students[i]=temp1;
+				temp1=students[i+1];
+				students[i+1]=temp2;
+				temp2=students[i+2];
+			}
+			students[i+1]=temp2;
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
