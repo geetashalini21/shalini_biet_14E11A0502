@@ -190,14 +190,34 @@ if(index<this.students.length||index>=0||students!=null){
 
 	@Override
 	public void removeToIndex(int index) {
-		// Add your implementation here
+		if(index<this.students.length||index>=0||students!=null){	
+			for(int i=0;i<index;i++)
+				{
+				this.students[i]=null;
+				}
+			}else{
+				throw new IllegalArgumentException();
+			}
 	}
 
 	@Override
-	public void removeToElement(Student student) {
+	public void removeToElement(Student student) throws IllegalArgumentException {
 		// Add your implementation here
+		int index=0;
+		if(students!=null){
+			for(int i=0;i<this.students.length;i++){
+				if(students[i]==student){
+					index=i;           
+				}	
+        	}
+			for(int i=index;i<students.length;i++){
+				students[i]=null;
+			}
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
-
+	
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
