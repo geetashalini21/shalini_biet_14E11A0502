@@ -66,7 +66,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void addFirst(Student student) {
+	public void addFirst(Student student)throws IllegalArgumentException {
 		// Add your implementation here
 		if(student!=null){
 			Student temp1=student;
