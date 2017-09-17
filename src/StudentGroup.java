@@ -150,6 +150,20 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		int temp=0;
+		for(int i=0;i<this.students.length;i++)
+		{
+			for(int j=1;j<this.students.length;j++)
+			{
+				if(students[j-1].getId()>students[j].getId())
+				{
+					temp=students[j-1].getId();
+					students[j-1].setId(students[j].getId());
+					students[j].setId(temp);
+				}
+					
+			}
+		}
 	}
 
 	@Override
