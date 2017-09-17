@@ -133,7 +133,7 @@ if(index>this.students.length||index<0||students!=null){
 	@Override
 	public void remove(Student student) throws IllegalArgumentException{
 		// Add your implementation here
-		try {
+		try{
 			if(students!=null)
 		{
 			for (int i=0;i<this.students.length;i++)
@@ -142,10 +142,6 @@ if(index>this.students.length||index<0||students!=null){
 				{
 					students[i]=students[i+1];
 				}
-				else
-				{
-					throw new IllegalArgumentException();
-					}
              }
 		}
 		}
