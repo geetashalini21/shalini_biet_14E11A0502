@@ -68,7 +68,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student)throws IllegalArgumentException {
 		// Add your implementation here
-					Student temp1=student;
+			Student temp1=student;
 			Student temp2=this.students[0];
 			int i;
 			for(i=0;i<this.students.length-2;i++){
@@ -81,8 +81,9 @@ public class StudentGroup implements StudentArrayOperation {
 			}
 
 	@Override
-	public void addLast(Student student) {
+	public void addLast(Student student) throws IllegalArgumentException {
 		// Add your implementation here
+		students[students.length+1]=student;
 	}
 
 	@Override
