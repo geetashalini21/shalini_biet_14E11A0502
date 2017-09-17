@@ -166,8 +166,26 @@ if(index<this.students.length||index>=0||students!=null){
 	}
 
 	@Override
-	public void removeFromElement(Student student) {
+	public void removeFromElement(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		int index=0;
+		if(students!=null){
+		for(int i=0;i<this.students.length;i++)
+		{
+			if(students[i]==student)
+			{
+				index=i;           
+			}
+		
+        }
+		for(int i=index;i<students.length;i++){
+			students[i]=null;
+			}
+		}
+		 else {
+				throw new IllegalArgumentException();
+		}
+
 	}
 
 	@Override
