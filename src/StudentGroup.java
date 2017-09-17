@@ -46,7 +46,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public Student getStudent(int index) {
+	public Student getStudent(int index) throws IllegalArgumentException{
 		// Add your implementation here
 		if(index<this.students.length||index>=0){
 			return this.students[index];
@@ -56,7 +56,7 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void setStudent(Student student, int index) {
+	public void setStudent(Student student, int index)throws IllegalArgumentException {
 		// Add your implementation here
 		if(index<this.students.length||index>=0||student!=null){
 			this.students[index]=student;
@@ -66,23 +66,57 @@ public class StudentGroup implements StudentArrayOperation {
 	}
 
 	@Override
-	public void addFirst(Student student) {
+	public void addFirst(Student student) throws IllegalArgumentException {
 		// Add your implementation here
+		if(student!=null){
+			Student temp1=student;
+			Student temp2=this.students[0];
+			int i;
+			for(i=0;i<this.students.length-2;i++){
+				students[i]=temp1;
+				temp1=students[i+1];
+				students[i+1]=temp2;
+				temp2=students[i+2];
+			}
+			students[i+1]=temp2;
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
-	public void addLast(Student student) {
+	public void addLast(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		if(student!=null){
+			students[students.length+1]=student;
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
-	public void add(Student student, int index) {
+	public void add(Student student, int index) throws IllegalArgumentException {
 		// Add your implementation here
+		if(index<this.students.length||index>=0||student!=null){
+			Student temp1=student;
+			Student temp2=this.students[index];
+			int i;
+			for(i=index;i<this.students.length-2;i++){
+				students[i]=temp1;
+				temp1=students[i+1];
+				students[i+1]=temp2;
+				temp2=students[i+2];
+			}
+			students[i+1]=temp2;
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		
 	}
 
 	@Override
