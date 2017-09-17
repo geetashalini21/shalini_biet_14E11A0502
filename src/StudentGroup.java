@@ -159,19 +159,51 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+		Student[] res=new Student[students.length];
+		int j=0;
+		if(date!=null){
+			for(Student student:students){
+				if(date.compareTo(student.getBirthDate())==0){
+					res[j]=student;
+					j++;
+				}
+			}
+		}else{
+			throw new IllegalArgumentException();
+		}
+		return res;
 	}
 
 	@Override
-	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate) {
+	public Student[] getBetweenBirthDates(Date firstDate, Date lastDate)throws IllegalArgumentException {
 		// Add your implementation here
-		return null;
+		Student[] res=new Student[students.length];
+		int j=0;
+		if(firstDate!=null||lastDate!=null){
+			for(Student student:students){
+				if(firstDate.compareTo(student.getBirthDate())>=0&&lastDate.compareTo(student.getBirthDate())<=0){
+					res[j]=student;
+					j++;
+				}
+			}
+		}else{
+			throw new IllegalArgumentException();
+		}
+		return res;
 	}
 
 	@Override
 	public Student[] getNearBirthDate(Date date, int days) {
 		// Add your implementation here
-		return null;
+		Student[] res=new Student[students.length];
+		int i=0;
+		for(Student student:students){
+			if(Math.abs(student.getBirthDate().getTime()-date.getTime())<=days){
+				res[i]=student;
+			}
+		}
+		return res;
+
 	}
 
 	@Override
