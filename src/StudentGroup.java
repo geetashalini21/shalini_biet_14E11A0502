@@ -148,6 +148,7 @@ public class StudentGroup implements StudentArrayOperation {
 					temp=students[j-1].getId();
 					students[j-1].setId(students[j].getId());
 					students[j].setId(temp);
+					
 				}
 					
 			}
@@ -187,12 +188,36 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudentsWithMaxAvgMark() {
 		// Add your implementation here
-		return null;
+		double max=students[0].getAvgMark();
+		for(int i=0;i<students.length;i++)
+		{
+			max=students[i].getAvgMark();
+		}
+		Student[] result= new Student[students.length];
+        for(int i=0;i<students.length;i++)
+		{
+        	if(students[i].getAvgMark()==max)
+        	{
+        	result[i]=students[i];	
+        	}
+		}
+		
+		return result ;
 	}
 
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
-		return null;
+		if(student!=null)
+		{	
+			int index=0;
+			for(int i=0;i<students.length;i++)
+			{
+				if(students[i]==student)index=i;
+			}
+			return students[index+1];
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 }
