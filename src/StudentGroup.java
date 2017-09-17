@@ -68,8 +68,7 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void addFirst(Student student)throws IllegalArgumentException {
 		// Add your implementation here
-		if(student!=null){
-			Student temp1=student;
+					Student temp1=student;
 			Student temp2=this.students[0];
 			int i;
 			for(i=0;i<this.students.length-2;i++){
@@ -79,11 +78,7 @@ public class StudentGroup implements StudentArrayOperation {
 				temp2=students[i+2];
 			}
 			students[i+1]=temp2;
-		}
-		else{
-			throw new IllegalArgumentException();
-		}
-	}
+			}
 
 	@Override
 	public void addLast(Student student) {
