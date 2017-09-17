@@ -131,8 +131,27 @@ if(index>this.students.length||index<0||students!=null){
 	}
 
 	@Override
-	public void remove(Student student){
+	public void remove(Student student) throws IllegalArgumentException{
 		// Add your implementation here
+		try {
+			if(students!=null)
+		{
+			for (int i=0;i<this.students.length;i++)
+             {
+				if(students[i]==student)
+				{
+					students[i]=students[i+1];
+				}
+				else
+				{
+					throw new IllegalArgumentException();
+					}
+             }
+		}
+		}
+                catch(IllegalArgumentException e){
+					System.out.println("Student not exist");
+	          }
 		
 	}
 
