@@ -168,29 +168,95 @@ if(index<this.students.length||index>=0||students!=null){
 	}
 
 	@Override
-	public void removeFromElement(Student student) {
+	public void removeFromElement(Student student) throws IllegalArgumentException {
 		// Add your implementation here
+		int index=0;
+		if(students!=null){
+		for(int i=0;i<this.students.length;i++)
+		{
+			if(students[i]==student)
+			{
+				index=i;           
+			}
+		
+        }
+		for(int i=index;i<students.length;i++){
+			students[i]=null;
+			}
+		}
+		 else {
+				throw new IllegalArgumentException();
+		}
+
+		
 	}
 
 	@Override
-	public void removeToIndex(int index) {
+	public void removeToIndex(int index) throws IllegalArgumentException{
 		// Add your implementation here
+		if(index<this.students.length||index>=0||students!=null){	
+			for(int i=0;i<index;i++)
+				{
+				this.students[i]=null;
+				}
+			}else{
+				throw new IllegalArgumentException();
+			}
 	}
 
 	@Override
-	public void removeToElement(Student student) {
+	public void removeToElement(Student student) throws IllegalArgumentException {
 		// Add your implementation here
+		int index=0;
+		if(students!=null){
+			for(int i=0;i<this.students.length;i++){
+				if(students[i]==student){
+					index=i;           
+				}	
+        	}
+			for(int i=index;i<students.length;i++){
+				students[i]=null;
+			}
+		}else{
+			throw new IllegalArgumentException();
+		}
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
+		int temp=0;
+		for(int i=0;i<this.students.length;i++)
+		{
+			for(int j=1;j<this.students.length;j++)
+			{
+				if(students[j-1].getId()>students[j].getId())
+				{
+					temp=students[j-1].getId();
+					students[j-1].setId(students[j].getId());
+					students[j].setId(temp);
+				}
+					
+			}
+		}
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		return null;
+		Student[] res=new Student[students.length];
+		int j=0;
+		if(date!=null){
+			for(Student student:students){
+				if(date.compareTo(student.getBirthDate())==0){
+					res[j]=student;
+					j++;
+				}
+			}
+		}else{
+			throw new IllegalArgumentException();
+		}
+		return res;
 	}
 
 	@Override
